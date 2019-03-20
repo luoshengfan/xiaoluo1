@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>
-培训公司管理系统
-</h1>
-<hr>
-</body>
-</html>
+{% extends  'base.html' %}
+{% block header %}
+    <div class="row-fluid">
+        <div class="span8">
+            <a href="/">Python1812</a>
+        </div>
+        <div class="span4">
+            <a href="{% url 'artilce_create' %}">新增文章</a> &nbsp;&nbsp;&nbsp;
+
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="row-fluid">
+        <div class="span12">
+            {% for foo in article %}
+                <h4 style="display: inline-block ;margin-right: 20px">{{ foo.title }}</h4>
+                <a href="{% url 'post_update' foo.pk %}">编辑文章</a> &nbsp;&nbsp;&nbsp;
+                <a href="{% url 'article_delete' foo.id%}">删除文章</a>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+<style>
+
+</style>
