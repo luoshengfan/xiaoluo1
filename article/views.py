@@ -9,9 +9,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-class ArticleList(ListView):
-    model = Article
-    template_name = 'post_list.html'
 
 
 def article_delete(request, id):
@@ -28,4 +25,4 @@ class  ArticleDetail(DetailView):
 class ArticleList(ListView):
     model = Article
     template_name = 'article_list.html'
-# >>>>>>> master
+
