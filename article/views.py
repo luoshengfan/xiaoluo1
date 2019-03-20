@@ -8,9 +8,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-class ArticleList(ListView):
-    model = Article
-    template_name = 'post_list.html'
 
 
 def article_delete(request, id):
@@ -26,10 +23,13 @@ class ArticleDetail(DetailView):
     template_name = 'post_detail.html'
 
 
-# class ArticleList(ListView):
-#     model = Article
-#     template_name = 'article_list.html'
-# >>>>>>> master
+
 class ArticleUpdate(UpdateView):
     model = Article
     template_name = 'post_update.html'
+    
+class ArticleList(ListView):
+    model = Article
+    template_name = 'article_list.html'
+
+
