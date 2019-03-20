@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Article
@@ -15,17 +14,22 @@ class ArticleList(ListView):
 
 
 def article_delete(request, id):
-    Articles =Article.objects.get(id=id)
+    Articles = Article.objects.get(id=id)
     Articles.delete()
+
+
 #     return redirect('post_list')
 
 
-class  ArticleDetail(DetailView):
+class ArticleDetail(DetailView):
     model = Article
     template_name = 'post_detail.html'
 
 
-class ArticleList(ListView):
-    model = Article
-    template_name = 'article_list.html'
+# class ArticleList(ListView):
+#     model = Article
+#     template_name = 'article_list.html'
 # >>>>>>> master
+class ArticleUpdate(UpdateView):
+    model = Article
+    template_name = 'post_update.html'
